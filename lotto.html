@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><span>로또 번호 생성기</span></title>
+	<script>
+		function generateLottoNumbers() {
+			var numbers = [];
+
+			while (numbers.length < 6) {
+				var randomNumber = Math.floor(Math.random() * 45) + 1;
+
+				if (numbers.indexOf(randomNumber) === -1) {
+					numbers.push(randomNumber);
+				}
+			}
+            numbers.sort(function(a, b) { return a - b; });
+
+             
+
+			document.getElementById("lottoNumbers").innerHTML = numbers.join(", ");
+		}
+	</script>
+</head>
+<body>
+	<h1>로또 번호 생성기</h1>
+	<p>아래 버튼을 클릭하여 로또 번호를 생성하세요.</p>
+	<button onclick="generateLottoNumbers()">번호 생성</button>
+	<p>생성된 로또 번호:</p>
+	<p id="lottoNumbers"></p>
+</body>
+</html>
